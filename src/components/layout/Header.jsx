@@ -34,7 +34,10 @@ export default function Header() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
           <p>Supplying businesses with quality office essentials.</p>
 
-          <Link to="/contact" className="flex items-center gap-2 transition hover:text-red-200">
+          <Link
+            to="/contact"
+            className="flex items-center gap-2 transition hover:text-red-200"
+          >
             <Phone size={13} />
             Contact Our Team
           </Link>
@@ -42,7 +45,7 @@ export default function Header() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-border bg-white">
-        <div className="mx-auto flex min-h-[82px] max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-5 md:min-h-0 md:gap-6 md:px-6 md:py-3">
+        <div className="mx-auto flex min-h-[66px] max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-5 md:min-h-0 md:gap-6 md:px-6 md:py-3">
 
           {/* Logo */}
           <Link
@@ -53,15 +56,15 @@ export default function Header() {
             <img
               src={willmanLogo}
               alt="Willman Sales Company LTD"
-              className="h-[68px] w-[68px] shrink-0 object-contain sm:h-[72px] sm:w-[72px] md:h-16 md:w-16"
+              className="h-[48px] w-[48px] shrink-0 object-contain md:h-16 md:w-16"
             />
 
             <div className="leading-tight">
-              <span className="block whitespace-nowrap text-[17px] font-extrabold tracking-tight text-brand-blue sm:text-[19px] md:text-lg">
+              <span className="block whitespace-nowrap text-[14px] font-extrabold tracking-tight text-brand-blue md:text-lg">
                 WILLMAN SALES
               </span>
 
-              <span className="mt-1 block whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.12em] text-text-secondary sm:text-[10px] sm:tracking-[0.15em]">
+              <span className="mt-1 block whitespace-nowrap text-[7px] font-semibold uppercase tracking-[0.13em] text-text-secondary md:text-[10px] md:tracking-[0.17em]">
                 Company Limited
               </span>
             </div>
@@ -110,7 +113,7 @@ export default function Header() {
             aria-expanded={menuOpen}
             className="shrink-0 rounded-md p-2 text-brand-blue hover:bg-surface lg:hidden"
           >
-            {menuOpen ? <X size={27} /> : <Menu size={27} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
@@ -124,7 +127,7 @@ export default function Header() {
                   to={link.path}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `border-b border-border py-3 text-base font-semibold ${
+                    `border-b border-border py-3 text-[14px] font-semibold ${
                       isActive ? 'text-brand-red' : 'text-text-primary'
                     }`
                   }
@@ -148,7 +151,10 @@ export default function Header() {
                 className="w-full bg-transparent pl-3 text-sm outline-none"
               />
 
-              <button type="submit" className="text-sm font-semibold text-brand-blue">
+              <button
+                type="submit"
+                className="text-sm font-semibold text-brand-blue"
+              >
                 Search
               </button>
             </form>
