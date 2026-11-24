@@ -1,3 +1,4 @@
+
 import willmanLogo from '../../assets/images/willman-logo.png';
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
@@ -28,47 +29,45 @@ export default function Header() {
 
   return (
     <>
-      {/* Top information bar */}
+      {/* Top Information Bar */}
       <div className="hidden bg-brand-blue text-white md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-xs">
           <p>Supplying businesses with quality office essentials.</p>
 
-          <a
-            href="/contact"
-            className="flex items-center gap-2 transition hover:text-red-200"
-          >
+          <Link to="/contact" className="flex items-center gap-2 transition hover:text-red-200">
             <Phone size={13} />
             Contact Our Team
-          </a>
+          </Link>
         </div>
       </div>
 
       <header className="sticky top-0 z-50 border-b border-border bg-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-6">
+        <div className="mx-auto flex min-h-[82px] max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-5 md:min-h-0 md:gap-6 md:px-6 md:py-3">
 
           {/* Logo */}
           <Link
             to="/"
-            className="flex shrink-0 items-center gap-3"
+            className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3"
             onClick={() => setMenuOpen(false)}
           >
-          <img
-            src={willmanLogo}
-            alt="Willman Sales Company LTD"
-            className="h-16 w-16 object-contain"
-          />
+            <img
+              src={willmanLogo}
+              alt="Willman Sales Company LTD"
+              className="h-[68px] w-[68px] shrink-0 object-contain sm:h-[72px] sm:w-[72px] md:h-16 md:w-16"
+            />
 
             <div className="leading-tight">
-              <span className="block text-lg font-extrabold tracking-tight text-brand-blue">
+              <span className="block whitespace-nowrap text-[17px] font-extrabold tracking-tight text-brand-blue sm:text-[19px] md:text-lg">
                 WILLMAN SALES
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.17em] text-text-secondary">
+
+              <span className="mt-1 block whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.12em] text-text-secondary sm:text-[10px] sm:tracking-[0.15em]">
                 Company Limited
               </span>
             </div>
           </Link>
 
-          {/* Desktop navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
               <NavLink
@@ -87,12 +86,13 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop search */}
+          {/* Desktop Search */}
           <form
             onSubmit={handleSearch}
             className="hidden items-center rounded-md border border-border bg-surface px-3 py-2 xl:flex"
           >
             <Search size={17} className="text-text-secondary" />
+
             <input
               type="search"
               value={search}
@@ -102,21 +102,21 @@ export default function Header() {
             />
           </form>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className="rounded-md p-2 text-brand-blue hover:bg-surface lg:hidden"
+            className="shrink-0 rounded-md p-2 text-brand-blue hover:bg-surface lg:hidden"
           >
-            {menuOpen ? <X size={25} /> : <Menu size={25} />}
+            {menuOpen ? <X size={27} /> : <Menu size={27} />}
           </button>
         </div>
 
-        {/* Mobile navigation */}
+        {/* Mobile Navigation */}
         {menuOpen && (
-          <div className="border-t border-border bg-white px-5 py-5 lg:hidden">
+          <div className="border-t border-border bg-white px-5 py-4 lg:hidden">
             <nav className="flex flex-col">
               {navLinks.map((link) => (
                 <NavLink
@@ -124,7 +124,7 @@ export default function Header() {
                   to={link.path}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `border-b border-border py-3 text-sm font-semibold ${
+                    `border-b border-border py-3 text-base font-semibold ${
                       isActive ? 'text-brand-red' : 'text-text-primary'
                     }`
                   }
@@ -139,6 +139,7 @@ export default function Header() {
               className="mt-5 flex items-center rounded-md border border-border bg-surface px-3 py-3"
             >
               <Search size={18} className="text-text-secondary" />
+
               <input
                 type="search"
                 value={search}
@@ -146,10 +147,8 @@ export default function Header() {
                 placeholder="Search products..."
                 className="w-full bg-transparent pl-3 text-sm outline-none"
               />
-              <button
-                type="submit"
-                className="text-sm font-semibold text-brand-blue"
-              >
+
+              <button type="submit" className="text-sm font-semibold text-brand-blue">
                 Search
               </button>
             </form>
